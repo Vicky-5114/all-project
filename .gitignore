@@ -1,0 +1,86 @@
+# ==================== 核心配置 ====================
+# 禁用全局忽略规则（避免与本地配置冲突）
+!*
+
+# ==================== 系统文件 ====================
+# 系统生成的隐藏文件
+.DS_Store
+Thumbs.db
+
+# ==================== IDE/编辑器配置 ====================
+# VS Code
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iml
+
+# Jupyter Notebook 缓存
+.ipynb_checkpoints/
+
+# ==================== Python 开发 ====================
+# Byte-compiled 文件
+__pycache__/
+*.py[cod]
+
+# 虚拟环境
+venv/
+.venv/
+env/
+
+# 包管理器生成文件
+pip-selfcheck.json
+.python-version
+
+# ==================== 文档/数据文件 ====================
+# 临时文件
+*.tmp
+*.log
+
+# 自动生成文件
+*.aux
+*.out
+
+# 大型数据文件（保留路径说明，实际数据本地存储）
+*.csv   # 如果需保留某些 CSV 文件注释此条
+*.zip
+*.tar.gz
+*.hdf5
+*.h5
+*.npy
+*.npz
+*.xlsx
+
+# 但保留数据目录结构和说明文件
+!data/
+data/*  # 忽略 data 下所有内容
+!data/README.md
+!data/.gitkeep  # 保留空文件夹
+data/*.csv  # 忽略特定目录下的CSV文件
+
+# ==================== 深度学习框架生成文件 ====================
+# 训练检查点
+checkpoints/
+*.ckpt
+*.pt
+*.pth
+*.model
+
+# 日志文件
+logs/
+*.tensorboard
+
+# ==================== 实验文件 ====================
+# Jupyter Notebook 输出（建议提交前清理单元格输出）
+*.ipynb
+
+# 数据预处理中间结果
+interim/
+processed/
+
+# ==================== 敏感信息 ====================
+# 环境变量文件
+.env
+secrets.ini
+config.yaml

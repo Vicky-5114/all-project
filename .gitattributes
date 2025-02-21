@@ -1,0 +1,1 @@
+DTS101-resources/lab/mnist_train.csv filter=lfs diff=lfs merge=lfs -text
