@@ -1,0 +1,91 @@
+import numpy as np
+import random
+import time
+
+
+def time_counter(func, *args):
+    start = time.time()
+    result = func(*args)
+    end = time.time()
+    return result, end - start
+
+
+def time_counter_decorator(func):
+    def wrapper(*args):
+        start = time.time()
+        result = func(*args)
+        end = time.time()
+        print(f"Time cost of {func.__name__}: {end - start}s")
+        return result
+
+    return wrapper
+
+def gen_random_list(n):
+    return [int(random.randint(0, 99)) for i in range(n)]
+
+
+@time_counter_decorator
+def mat_mul_v2(mat_1: list[list[float]], mat_2: list[list[float]]):
+    result = []
+    # mat_1 (m, k)
+    # mat_2 (k, n)
+    m = len(mat_1)
+    k = len(mat_2)
+    n = len(mat_2[0])
+
+    # result (m, n)
+    result = [[0 for _ in range(n)] for _ in range(m)]
+
+    for i in range(m):
+        for j in range(n):
+            ks = [mat_1[i][x] * mat_2[x][j] for x in range(k)]
+            result[i][j] = sum(ks)
+
+    return result
+
+def log_data(data: np.ndarray, name:str):
+    print(f"{'':=^80}")
+    print(f"Name : {name}")
+    print(f"Value :\n{data}")
+    print(f"Shape : {data.shape}")
+    print(f"Size : {data.size}")
+    print(f"DType : {data.dtype}")
+    
+    
+    
+if __name__ == "__main__":
+    data = np.array([1, 2, 3, 4, 5], dtype=np.int64)
+    log_data(data, "data 12345")
+    log_data(data.T, "data.T 12345")
+    
+    data = np.array([1, 2, 3, 4, 5], dtype=np.int64)
+    log_data(data, "data 12345")
+    log_data(data.T, "data.T 12345")
+    
+    data = np.array([[1, 2], [3, 4], [5, 6]], dtype=np.int64)
+    log_data(data, "data 123456")
+    log_data(data.T, "data.T 123456")
+    log_data(data + 2, "data 123456 + 2")
+    log_data(data *2, "data 123456 * 2")
+    
+    log_data(np.sum(data), "data sum")
+    # 压缩列,保留行,一行
+    log_data(np.sum(data, axis=0), "data sum of rows")
+    # 压缩行,保留列,一列
+    log_data(np.sum(data, axis=1), "data sum of cols")
+         
+
+    log_data(data, "data")
+    log_data(data.reshape(1, 6), "Reshape Data")
+    log_data(data.reshape(6,).reshape(2, 3), "Reshape Data")
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

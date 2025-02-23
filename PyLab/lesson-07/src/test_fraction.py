@@ -1,0 +1,20 @@
+from pylab.math.fraction import Fraction
+
+if __name__ == "__main__":
+    f1 = Fraction(1, 2)
+    f2 = Fraction(6, 3)
+    f3 = Fraction(1, -4)
+    f4 = Fraction(-1, 4)
+    print(f1 + f2)
+    print(f1 - f2)
+    print(f1 * f2)
+    print(f1 / f2)
+    print(f1 + 3)
+    print(f1 - 3.2)
+    print(f1 * False)
+    print(f1 / True)
+    print(3 + f1)
+    print(3.2 - f1)
+    print(True * f1)
+    print(False / f1)
+    print(0.5 + 1 / f2 * True - 4 * f3 + f4)

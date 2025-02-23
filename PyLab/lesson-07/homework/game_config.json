@@ -1,0 +1,12 @@
+{
+    "config": [
+        {
+            "game-type": "dice",
+            "round": 3
+        },
+        {
+            "game-type": "guessnumber",
+            "round": 2
+        }
+    ]
+}
