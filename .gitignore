@@ -71,9 +71,6 @@ checkpoints/
 logs/
 *.tensorboard
 
-# ==================== 实验文件 ====================
-# Jupyter Notebook 输出（建议提交前清理单元格输出）
-*.ipynb
 
 # 数据预处理中间结果
 interim/
